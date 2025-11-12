@@ -1,14 +1,28 @@
 const express = require("express");
-require('express');
-const router =
-    express.Router();
-app.get('/', (req, res => {
+const router = express.Router();
+
+router.get('/', (req, res) => {
     res.send("User List");
+});
 
+router.get('/new', (req, res) => {
+    res.send('New');
+});
 
-    app.get('/new', (req, res) => {
-        res.send('New');
+router.post('/', (req, res) => {
+    // Handle post request
+});
+
+router.route("/:id")
+    .get((req, res) => {
+        res.send(`Getting User data: ${req.params.id}`);
     })
-}))
+    .delete((req, res) => {
+        res.send(`Deleting User data: ${req.params.id}`);
+    })
+    .put((req, res) => {
+        res.send(`Updating User data: ${req.params.id}`);
+    });
 
-module.exports = router; 
+
+module.exports = router;
