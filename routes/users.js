@@ -28,4 +28,10 @@ router.route("/:id")
         next();
     });
 
+    const users = [{name: "George"}, {name: "Justyna"}];
+    router.param("id", (req,res,next,id)=> {
+        console.log(`Accessing user #${id}`);
+        next();
+    })
+
 module.exports = router;
