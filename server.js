@@ -7,21 +7,32 @@ const app = express()
 app.set("view engine", 'ejs');  //Calling this function sets up a server 
 app.use('/users', userRouter);
 app.use('/posts', userPosts);
+app.use(logger);
 
 app.get('/' , (req,res)=>{
     console.log('Here');
     res.render("index" , {user: "George!"});
         
 }); 
-app.get('/users', (req, res => {
+app.get('/users', (req, res) => {
     res.send("User List");
-    
+});
 
-    app.get('/user/new', (req, res)=>{
-        res.send('New User form');
-    })
-    
-}))
+app.get('/user/new', (req, res) => {
+    res.send('New User form');
+});
 
+app.use(express.static)("public");
+app.use(express.urlencoded({extended:true}));
+
+function logger(req, res, next){
+    console.log(`page Accessed: ${req.originalUrl}`);
+    next();
+}
+
+app.get('/new', (req, res) => {
+    res.render('users/new' , {firstName:"Please Enter Your Name"})
+});
 
 app.listen(3030);
+
