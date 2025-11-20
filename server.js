@@ -31,9 +31,6 @@ function logger(req, res, next){
     next();
 }
 
-app.get('/new', (req, res) => {
-    res.render('users/new' , {firstName:"Please Enter Your Name"})
-});
 
 app.listen(3030);
 

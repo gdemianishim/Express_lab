@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <h1>Register User</h1>
+    <form action="/users" medthod="post"></form>
+    <fieldset>
+        <legend>Name</legend>
+    <label>
+        First Name
+        <input type="text" name="firstName" value="<%= locals.firstName %>">
+    </label>
+    
+    <br>
+    
+    <label>
+        Last Name
+        <input type="text" name="lastName" value="<%= locals.lastName %>">
+    </label>
+    <br>
+    </fieldset>
+    
+    <fieldset>
+    <label>
+        <legend>Gender</legend>
+        Male
+        <input type="radio" name="gender" value="Male">
+    </label>
+
+    <label>
+        Female
+        <input type="radio" name="gender" value="Female">
+    </label>
+    <br>
+    <label>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Age</legend>
+        Age <input type="number" name="age">
+    </label>
+    <br>
+    <button type="submit">Submit</button>
+    </form>
+
+      
+       
+
+    
+</body>
+
+</html>
